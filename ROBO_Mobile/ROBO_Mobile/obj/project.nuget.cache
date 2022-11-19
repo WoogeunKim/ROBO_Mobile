@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "5Et9H3cwqrgAhl9QzzLePbLVv59nJSO87NC7Xnn4q2eg+Ojsf35sN5Fo4bRRuoRVUJ6SLJALHS7Nuit2bBa7Cw==",
+  "success": true,
+  "projectFilePath": "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\IEG\\.nuget\\packages\\devexpress.xamarinforms.charts\\22.1.6\\devexpress.xamarinforms.charts.22.1.6.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\devexpress.xamarinforms.collectionview\\22.1.6\\devexpress.xamarinforms.collectionview.22.1.6.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\devexpress.xamarinforms.core\\22.1.6\\devexpress.xamarinforms.core.22.1.6.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\devexpress.xamarinforms.editors\\22.1.6\\devexpress.xamarinforms.editors.22.1.6.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\devexpress.xamarinforms.grid\\22.1.6\\devexpress.xamarinforms.grid.22.1.6.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\devexpress.xamarinforms.navigation\\22.1.6\\devexpress.xamarinforms.navigation.22.1.6.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\devexpress.xamarinforms.scheduler\\22.1.6\\devexpress.xamarinforms.scheduler.22.1.6.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\rg.plugins.popup\\2.1.0\\rg.plugins.popup.2.1.0.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\xamarin.ffimageloading\\2.4.11.982\\xamarin.ffimageloading.2.4.11.982.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\xamarin.ffimageloading.forms\\2.4.11.982\\xamarin.ffimageloading.forms.2.4.11.982.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+  ],
+  "logs": []
+}

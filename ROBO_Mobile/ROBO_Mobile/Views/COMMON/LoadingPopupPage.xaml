@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PdaKcgApp.Common.LoadingPopupPage"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             CloseWhenBackgroundIsClicked="False">
+    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+        <ActivityIndicator Color="White"  IsRunning="True" IsEnabled="True" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="150" WidthRequest="150"/>
+        <!-- Color="{StaticResource Primary}"-->
+        <!--
+        <Label x:Name="customsg" Text="Loading......" TextColor="{StaticResource Primary}" FontSize="40" FontAttributes="Bold" />
+        -->
+    </StackLayout>
+</pages:PopupPage>

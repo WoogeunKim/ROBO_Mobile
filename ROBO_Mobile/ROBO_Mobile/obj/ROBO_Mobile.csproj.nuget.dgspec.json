@@ -1,0 +1,181 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile.csproj": {}
+  },
+  "projects": {
+    "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile.csproj",
+        "projectName": "ROBO_Mobile",
+        "projectPath": "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile.csproj",
+        "packagesPath": "C:\\Users\\IEG\\.nuget\\packages\\",
+        "outputPath": "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\IEG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "E:\\Program Files (x86)\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/kYcbLQozh3leB53zgotWS3H3It9Dr4y6X72Sx4ITZ9ZbpCBJyG/api": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\Xam.Plugin.AutoUpdate-master\\src\\Xam.Plugin.AutoUpdate\\Xam.Plugin.AutoUpdate.csproj": {
+                "projectPath": "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\Xam.Plugin.AutoUpdate-master\\src\\Xam.Plugin.AutoUpdate\\Xam.Plugin.AutoUpdate.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "DevExpress.XamarinForms.Charts": {
+              "target": "Package",
+              "version": "[22.1.6, )"
+            },
+            "DevExpress.XamarinForms.CollectionView": {
+              "target": "Package",
+              "version": "[22.1.6, )"
+            },
+            "DevExpress.XamarinForms.Editors": {
+              "target": "Package",
+              "version": "[22.1.6, )"
+            },
+            "DevExpress.XamarinForms.Grid": {
+              "target": "Package",
+              "version": "[22.1.6, )"
+            },
+            "DevExpress.XamarinForms.Navigation": {
+              "target": "Package",
+              "version": "[22.1.6, )"
+            },
+            "DevExpress.XamarinForms.Scheduler": {
+              "target": "Package",
+              "version": "[22.1.6, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.6.1, )"
+            },
+            "Xamarin.FFImageLoading.Forms": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2012, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\Xam.Plugin.AutoUpdate-master\\src\\Xam.Plugin.AutoUpdate\\Xam.Plugin.AutoUpdate.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\Xam.Plugin.AutoUpdate-master\\src\\Xam.Plugin.AutoUpdate\\Xam.Plugin.AutoUpdate.csproj",
+        "projectName": "Xam.Plugin.AutoUpdate",
+        "projectPath": "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\Xam.Plugin.AutoUpdate-master\\src\\Xam.Plugin.AutoUpdate\\Xam.Plugin.AutoUpdate.csproj",
+        "packagesPath": "C:\\Users\\IEG\\.nuget\\packages\\",
+        "outputPath": "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\Xam.Plugin.AutoUpdate-master\\src\\Xam.Plugin.AutoUpdate\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\IEG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard1.4"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "E:\\Program Files (x86)\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/kYcbLQozh3leB53zgotWS3H3It9Dr4y6X72Sx4ITZ9ZbpCBJyG/api": {}
+        },
+        "frameworks": {
+          "netstandard1.4": {
+            "targetAlias": "netstandard1.4",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard1.4": {
+          "targetAlias": "netstandard1.4",
+          "dependencies": {
+            "NETStandard.Library": {
+              "target": "Package",
+              "version": "[1.6.1, )",
+              "autoReferenced": true
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[2.5.1.527436, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

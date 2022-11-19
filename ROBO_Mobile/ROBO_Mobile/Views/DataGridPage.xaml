@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxg="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+             xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
+             xmlns:templates="clr-namespace:ROBO_Mobile.Views.Templates"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource NormalBackgroundColor}"
+             x:Class="ROBO_Mobile.Views.DataGridPage">
+    <NavigationPage.TitleView>
+        <templates:DrawerTitleView/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <dxe:ComboBoxEdit Grid.Row="0" Margin="10,5" ItemsSource="{Binding ComboCoList}" SelectedItem="{Binding ComboCoItem, Mode=TwoWay}" DisplayMember="CO_NM" ValueMember="CO_NM" LabelText="매입처" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False"  >
+                <dxe:ComboBoxEdit.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding CO_NO}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="1" Text="{Binding CO_NM}" HorizontalTextAlignment="Start"  VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </dxe:ComboBoxEdit.ItemTemplate>
+            </dxe:ComboBoxEdit>
+
+
+            <dxg:DataGridView Grid.Row="1" ItemsSource="{Binding InItmMstList}" SelectedItem="{Binding InItemMst, Mode=TwoWay}" IsColumnHeaderVisible="False" BorderThickness="2" RowHeight="210" >
+                <dxg:DataGridView.AdvancedColumnLayout>
+                    <dxg:AdvancedColumnLayout>
+                        <dxg:AdvancedColumnLayout.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1.6*"/>
+                        </dxg:AdvancedColumnLayout.ColumnDefinitions>
+                        <dxg:AdvancedColumnLayout.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </dxg:AdvancedColumnLayout.RowDefinitions>
+                    </dxg:AdvancedColumnLayout>
+                </dxg:DataGridView.AdvancedColumnLayout>
+
+                <dxg:DataGridView.EndSwipeItems>
+                    <dxg:SwipeItem Caption="입고" BackgroundColor="#ff3b30" Image="delete.png" Command="{Binding InsertItemContactCommand}" /> <!--Tap="{Binding InsertItemContactTap}"-->
+                </dxg:DataGridView.EndSwipeItems>
+
+                 
+                <dxg:DataGridView.CellStyle>
+                    <dxg:CellStyle BackgroundColor="#F6F6F6" BorderColor="#BDBDBD" FontSize="14" BottomBorderColor="Black" 
+                           SelectionColor="#D4F4FA" SelectionFontColor="Black"/>
+                </dxg:DataGridView.CellStyle>
+
+                <dxg:TemplateColumn Row="0" Column="0">
+                    <dxg:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Label Text="발주번호 : " Font="Bold, 14" VerticalOptions="Fill" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                            </Grid>
+                        </DataTemplate>
+                    </dxg:TemplateColumn.DisplayTemplate>
+                </dxg:TemplateColumn>
+                <dxg:TextColumn FieldName="PUR_ORD_NO" Row="0" Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" FontFamily="Bold" />
+
+                <dxg:TemplateColumn Row="0" Column="2" >
+                    <dxg:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Label Text="순번 : " Font="Bold, 14" VerticalOptions="Fill" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                            </Grid>
+                        </DataTemplate>
+                    </dxg:TemplateColumn.DisplayTemplate>
+                </dxg:TemplateColumn>
+                <dxg:NumberColumn FieldName="PUR_ORD_SEQ" Row="0" Column="3" VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"/>
+
+                <dxg:TemplateColumn Row="1" Column="0" >
+                    <dxg:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Label Text="품목코드 : " Font="Bold, 14" VerticalOptions="Fill" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                            </Grid>
+                        </DataTemplate>
+                    </dxg:TemplateColumn.DisplayTemplate>
+                </dxg:TemplateColumn>
+                <dxg:TextColumn FieldName="ITM_CD" Row="1" Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                <dxg:TemplateColumn Row="1" Column="2" >
+                    <dxg:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Label Text="발주일자 : " Font="Bold, 14" VerticalOptions="Fill" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                            </Grid>
+                        </DataTemplate>
+                    </dxg:TemplateColumn.DisplayTemplate>
+                </dxg:TemplateColumn>
+                <dxg:TextColumn FieldName="PUR_DUE_DT" Row="1" Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+
+                <dxg:TemplateColumn Row="2" Column="0" >
+                    <dxg:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Label Text="품목명 : " Font="Bold, 14" VerticalOptions="Fill" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                            </Grid>
+                        </DataTemplate>
+                    </dxg:TemplateColumn.DisplayTemplate>
+                </dxg:TemplateColumn>
+                <dxg:TextColumn FieldName="ITM_NM" Row="2" Column="1" ColumnSpan="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+
+                <dxg:TemplateColumn Row="3" Column="0" >
+                    <dxg:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Label Text="발주 수량 : " Font="Bold, 14" VerticalOptions="Fill" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                            </Grid>
+                        </DataTemplate>
+                    </dxg:TemplateColumn.DisplayTemplate>
+                </dxg:TemplateColumn>
+                <dxg:NumberColumn FieldName="PUR_QTY" Row="3" Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="End" DisplayFormat="###,###,###,##0" />
+
+                <dxg:TemplateColumn Row="3" Column="2" >
+                    <dxg:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Label Text="입고 수량 : " Font="Bold, 14" VerticalOptions="Fill" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                            </Grid>
+                        </DataTemplate>
+                    </dxg:TemplateColumn.DisplayTemplate>
+                </dxg:TemplateColumn>
+                <dxg:NumberColumn FieldName="ITM_QTY" Row="3" Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="End" DisplayFormat="###,###,###,##0" />
+
+            </dxg:DataGridView>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
