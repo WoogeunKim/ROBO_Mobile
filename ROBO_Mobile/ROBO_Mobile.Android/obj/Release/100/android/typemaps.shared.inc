@@ -187,38 +187,38 @@
 	.section	.rodata.map_aname.31,"aMS",@progbits,1
 	.type	.L.map_aname.31, @object
 .L.map_aname.31:
-	.asciz	"Xamarin.Jetbrains.Annotations"
-	.size	.L.map_aname.31, 30
+	.asciz	"ROBO_Mobile.Android"
+	.size	.L.map_aname.31, 20
 
 	.section	.rodata.map_aname.32,"aMS",@progbits,1
 	.type	.L.map_aname.32, @object
 .L.map_aname.32:
-	.asciz	"Xamarin.Google.Guava.ListenableFuture"
-	.size	.L.map_aname.32, 38
+	.asciz	"Xamarin.Jetbrains.Annotations"
+	.size	.L.map_aname.32, 30
 
 	.section	.rodata.map_aname.33,"aMS",@progbits,1
 	.type	.L.map_aname.33, @object
 .L.map_aname.33:
-	.asciz	"Xamarin.AndroidX.RecyclerView"
-	.size	.L.map_aname.33, 30
+	.asciz	"Xamarin.Google.Guava.ListenableFuture"
+	.size	.L.map_aname.33, 38
 
 	.section	.rodata.map_aname.34,"aMS",@progbits,1
 	.type	.L.map_aname.34, @object
 .L.map_aname.34:
-	.asciz	"DevExpress.XamarinForms.Charts.Android"
-	.size	.L.map_aname.34, 39
+	.asciz	"Xamarin.AndroidX.RecyclerView"
+	.size	.L.map_aname.34, 30
 
 	.section	.rodata.map_aname.35,"aMS",@progbits,1
 	.type	.L.map_aname.35, @object
 .L.map_aname.35:
-	.asciz	"DevExpress.Xamarin.Android.Scheduler"
-	.size	.L.map_aname.35, 37
+	.asciz	"DevExpress.XamarinForms.Charts.Android"
+	.size	.L.map_aname.35, 39
 
 	.section	.rodata.map_aname.36,"aMS",@progbits,1
 	.type	.L.map_aname.36, @object
 .L.map_aname.36:
-	.asciz	"ROBO_Mobile.Android"
-	.size	.L.map_aname.36, 20
+	.asciz	"DevExpress.Xamarin.Android.Scheduler"
+	.size	.L.map_aname.36, 37
 
 	.section	.rodata.map_aname.37,"aMS",@progbits,1
 	.type	.L.map_aname.37, @object

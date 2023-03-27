@@ -298,7 +298,7 @@
 
 	/* 30: ROBO_Mobile.dll */
 	/* uncompressed_file_size */
-	.long	688640
+	.long	715776
 	/* loaded */
 	.byte	0
 	/* data */
@@ -694,7 +694,7 @@
 
 	/* 74: mscorlib.dll */
 	/* uncompressed_file_size */
-	.long	2146304
+	.long	2146816
 	/* loaded */
 	.byte	0
 	/* data */

@@ -43,8 +43,9 @@ namespace ROBO_Mobile
             Application.Current.Properties["CHNL_CD"] = "C210914-ROBO";
 
             // 로그인 시작화면
-            navigationService.NavigateToAsync<MainViewModel>();
-            //navigationService.NavigateToAsync<LoginViewModel>();
+            navigationService.NavigateToAsync<LoginViewModel>();
+            //navigationService.NavigateToAsync<MainViewModel>();
+            //navigationService.NavigateToAsync<DataGridViewModel>();
         }
 
         protected override void OnStart()
@@ -60,6 +61,8 @@ namespace ROBO_Mobile
                     string HTTP_URL = Application.Current.Properties["URL"] as string;
 
                     //downloadUrl = "http://192.168.5.99:8888/pda/co.kr.kcg.pdakcgapp_v1.0.apk";
+                    //com.JSmartSolution.robo_mobile_v1.5.apk
+                    //wjstkstlf_1234
                     string downloadUrl = string.Empty;
                     UpdateManagerParameters parameters = new UpdateManagerParameters
                     {

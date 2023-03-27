@@ -36,5 +36,9 @@ namespace ROBO_Mobile.Models
         public string INAUD_ORG_NO { get; set; }
         public string INAUD_ORG_NM { get; set; }
         public string PUR_DUE_DT { get; set; }
+        public string AREA_CD { get; set; }
+        public string LOT_NO { get; set; }
+        public string CRE_USR_ID { get; set; }
+        public string INAUD_DT { get; set; }
     }
 }
