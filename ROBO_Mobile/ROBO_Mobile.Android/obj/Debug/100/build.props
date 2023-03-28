@@ -20,12 +20,12 @@ xamarinandroidversion=12.0.0-3
 monosymbolarchive=false
 androiduselatestplatformsdk=false
 targetframeworkversion=v10.0
-androidcreatepackageperabi=false
+androidcreatepackageperabi=true
 androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=638150775631982582
+_nugetassetstimestamp=638155157945442148
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a

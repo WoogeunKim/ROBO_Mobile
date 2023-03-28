@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CETRQrjg9MoI/D+PxNJR5y9eK3lExiIc3dR7/wNoxPhOmB8D/gnZi2Dr54xKlgbVZ8+bMnku5e1BF815fPUQNg==",
+  "dgSpecHash": "4QyO7t4wTUpm0Wai+VM7F5RrDPOUVBiA6zuCLa2UqeEdrkGdcVtwrqk8ShqaQw1uT15gXcGq5eBBvf3ykE8vug==",
   "success": true,
   "projectFilePath": "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile.Android\\ROBO_Mobile.Android.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\IEG\\.nuget\\packages\\devexpress.xamarinforms.grid\\22.1.6\\devexpress.xamarinforms.grid.22.1.6.nupkg.sha512",
     "C:\\Users\\IEG\\.nuget\\packages\\devexpress.xamarinforms.navigation\\22.1.6\\devexpress.xamarinforms.navigation.22.1.6.nupkg.sha512",
     "C:\\Users\\IEG\\.nuget\\packages\\devexpress.xamarinforms.scheduler\\22.1.6\\devexpress.xamarinforms.scheduler.22.1.6.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\fastandroidcamera\\2.0.0\\fastandroidcamera.2.0.0.nupkg.sha512",
     "C:\\Users\\IEG\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\IEG\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\IEG\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
@@ -141,7 +142,9 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
     "C:\\Users\\IEG\\.nuget\\packages\\xamarin.jetbrains.annotations\\13.0.0.3\\xamarin.jetbrains.annotations.13.0.0.3.nupkg.sha512",
     "C:\\Users\\IEG\\.nuget\\packages\\xamarin.kotlin.stdlib\\1.4.20\\xamarin.kotlin.stdlib.1.4.20.nupkg.sha512",
-    "C:\\Users\\IEG\\.nuget\\packages\\xamarin.kotlin.stdlib.common\\1.4.20\\xamarin.kotlin.stdlib.common.1.4.20.nupkg.sha512"
+    "C:\\Users\\IEG\\.nuget\\packages\\xamarin.kotlin.stdlib.common\\1.4.20\\xamarin.kotlin.stdlib.common.1.4.20.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\zxing.net.mobile\\2.4.1\\zxing.net.mobile.2.4.1.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\zxing.net.mobile.forms\\2.4.1\\zxing.net.mobile.forms.2.4.1.nupkg.sha512"
   ],
   "logs": []
 }

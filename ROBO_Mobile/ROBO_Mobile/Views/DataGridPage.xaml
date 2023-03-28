@@ -5,7 +5,8 @@
              xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
              xmlns:dxp="http://schemas.devexpress.com/xamarin/2014/forms/popup"  
              xmlns:dxcv="http://schemas.devexpress.com/xamarin/2014/forms/collectionview"
-             xmlns:templates="clr-namespace:ROBO_Mobile.Views.Templates"
+             xmlns:templates="clr-namespace:ROBO_Mobile.Views.Templates" 
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              Title="{Binding Title}"
              BackgroundColor="{StaticResource NormalBackgroundColor}"
              x:Class="ROBO_Mobile.Views.DataGridPage">
@@ -34,7 +35,7 @@
             </Grid.RowDefinitions>
 
 
-            <dxe:ComboBoxEdit Grid.Row="0" Margin="10,5" ItemsSource="{Binding ComboCoList}" SelectedItem="{Binding ComboCoItem, Mode=TwoWay}" DisplayMember="CO_NM" ValueMember="CO_NM" LabelText="매입처" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False"  >
+            <dxe:ComboBoxEdit Grid.Row="0" Margin="10,5" ItemsSource="{Binding ComboCoList}" SelectedItem="{Binding ComboCoItem, Mode=TwoWay}" DisplayMember="CO_NM" ValueMember="CO_NM" LabelText="매입처" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" >
                 <dxe:ComboBoxEdit.ItemTemplate>
                     <DataTemplate>
                         <Grid HeightRequest="40">
@@ -74,10 +75,11 @@
 
                  
                 <dxg:DataGridView.CellStyle>
+                    <!--<dxg:CellStyle BackgroundColor="#F6F6F6" BorderColor="#BDBDBD" FontSize="14" BottomBorderColor="Black" SelectionColor="#D4F4FA" SelectionFontColor="Black"/>-->
                     <dxg:CellStyle BackgroundColor="#F6F6F6" BorderColor="#BDBDBD" FontSize="14" BottomBorderColor="Black"
-                           SelectionColor="#D4F4FA" SelectionFontColor="Black"/>
+                           SelectionColor="#D4F4FA" SelectionFontColor="Red"/>
                 </dxg:DataGridView.CellStyle>
-
+                
                 <dxg:TemplateColumn Row="0" Column="0">
                     <dxg:TemplateColumn.DisplayTemplate>
                         <DataTemplate>
@@ -150,12 +152,14 @@
                     <dxg:TemplateColumn.DisplayTemplate>
                         <DataTemplate>
                             <Grid>
-                                <Label Text="입고 수량 : " Font="Bold, 14" VerticalOptions="Fill" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                                <!--<Label Text="입고 수량 : " Font="Bold, 14" VerticalOptions="Fill" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>-->
+                                <Label Text="잔량 : " Font="Bold, 14" VerticalOptions="Fill" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
                             </Grid>
                         </DataTemplate>
                     </dxg:TemplateColumn.DisplayTemplate>
                 </dxg:TemplateColumn>
-                <dxg:NumberColumn FieldName="ITM_QTY" Row="3" Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="End" DisplayFormat="###,###,###,##0" />
+                <!--<dxg:NumberColumn FieldName="ITM_QTY" Row="3" Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="End" DisplayFormat="###,###,###,##0" />-->
+                <dxg:NumberColumn FieldName="RMN_QTY" Row="3" Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="End" DisplayFormat="###,###,###,##0" />
 
             </dxg:DataGridView>
 
@@ -173,17 +177,36 @@
                            FontSize="Medium" />
 
                     <BoxView Style="{StaticResource SeparatorStyle}" Margin="24,0"/>
-                    <dxe:TextEdit BoxPadding="24,8"
-                                  BoxHeight="50"
-                                  TextHorizontalAlignment="Center"
-                                  HelpText="원청바코드를 입력하세요." 
-                                  Text="{Binding LotBarCo}"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+                        <dxe:TextEdit Grid.Column="0"
+                                      BoxHeight="50"
+                                      HorizontalOptions="Fill"
+                                      HelpText="원청바코드를 입력하세요." 
+                                      Margin="5,0,0,0"
+                                      Text="{Binding LotBarCo}"/>
+
+                        <Button Grid.Column="1"
+                                Margin="1,0,5,5"
+                                Text="바코드" 
+                                FontAttributes="Bold" 
+                                FontSize="Small" 
+                                TextColor="White"
+                                BackgroundColor="#233156" 
+                                Command="{Binding BarCodeCommand}"/>
+
+                    </Grid>
 
                     <dxe:DateEdit BoxPadding="24,8"
                                   BoxHeight="50"
                                   TextHorizontalAlignment="Center" 
                                   Date="{Binding InpDt, Mode=TwoWay}"
                                   DisplayFormat="yyyy-MM-dd"
+                                  Margin="5,0"
                                   HelpText="입고일자를 입력하세요." />
 
                     <dxe:NumericEdit
@@ -193,6 +216,7 @@
                                   Value="{Binding InpQty, Mode=TwoWay}"                         
                                   HasError="{Binding ActualHasError}"
                                   ErrorText="{Binding ActualErrorText}"
+                                  Margin="5,0"
                                   HelpText="입고수량을 입력하세요." />
                     <!--ValueChangedCommand="{Binding InpQtyValueChangedCommand}"-->
 

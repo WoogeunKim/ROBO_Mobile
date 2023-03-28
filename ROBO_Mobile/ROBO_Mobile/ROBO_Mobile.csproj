@@ -36,6 +36,8 @@
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xam.Plugin.AutoUpdate-master\src\Xam.Plugin.AutoUpdate\Xam.Plugin.AutoUpdate.csproj" />
@@ -62,6 +64,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DataGridPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Dialog\FullScreenScanning.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage - 복사.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -90,9 +95,5 @@
     <EmbeddedResource Update="Views\Templates\DrawerTitleView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Dialog\" />
   </ItemGroup>
 </Project>

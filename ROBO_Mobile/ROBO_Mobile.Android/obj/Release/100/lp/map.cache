@@ -11,6 +11,7 @@ DevExpress.XamarinForms.Editors.Android.dll
 DevExpress.XamarinForms.Grid.Android.dll
 DevExpress.XamarinForms.Navigation.Android.dll
 DevExpress.XamarinForms.Scheduler.Android.dll
+FastAndroidCamera.dll
 FFImageLoading.Forms.Platform.dll
 FFImageLoading.Platform.dll
 FormsViewGroup.dll
@@ -67,6 +68,8 @@ Xamarin.Google.Android.Material.dll
 Xamarin.Google.Guava.ListenableFuture.dll
 Xamarin.Jetbrains.Annotations.dll
 Xamarin.Kotlin.StdLib.dll
+ZXing.Net.Mobile.Forms.Android.dll
+ZXingNetMobile.dll
 androidx.versionedparcelable.versionedparcelable.aar
 androidx.lifecycle.lifecycle-runtime.aar
 androidx.core.core.aar

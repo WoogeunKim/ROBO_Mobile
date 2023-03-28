@@ -28,3 +28,4 @@ E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\ROBO_
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\ROBO_Mobile.dll
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\ref\ROBO_Mobile.dll
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\ROBO_Mobile.pdb
+E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\Dialog\FullScreenScanning.xaml.g.cs

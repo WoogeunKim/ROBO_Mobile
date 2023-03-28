@@ -8,6 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms.Internals;
 using DevExpress.XamarinForms.DataGrid;
+using System.Threading.Tasks;
+using ROBO_Mobile.Views.Dialog;
+using System.Threading;
 
 namespace ROBO_Mobile.ViewModels
 {
@@ -31,6 +34,10 @@ namespace ROBO_Mobile.ViewModels
             ComboCoList = new List<MobileVo>();
 
             SYSTEM_CODE_VO();
+
+
+            //바코드 호출
+            BarCodeCommand = new Command(async () => await ExecuteBarCodeCommand());
         }
 
         public async void SYSTEM_CODE_VO()
@@ -38,12 +45,8 @@ namespace ROBO_Mobile.ViewModels
             try
             {
                 // 매입처 조회
-                using (client = new HttpClient())
+                using (client = httpClient())
                 {
-                    client.BaseAddress = new Uri(HTTP_URL);
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
                     using (response = await client.PostAsync("mobile/inp/m/co", new StringContent(JsonConvert.SerializeObject(new MobileVo() { CHNL_CD = this.CHNL_CD, DELT_FLG = "N" }), System.Text.Encoding.UTF8, "application/json")))
                     {
                         if (response.IsSuccessStatusCode)
@@ -78,12 +81,8 @@ namespace ROBO_Mobile.ViewModels
                 IsOpenPopup = false;
 
                 // 발주 조회
-                using (client = new HttpClient())
+                using (client = httpClient())
                 {
-                    client.BaseAddress = new Uri(HTTP_URL);
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
                     using (response = await client.PostAsync("mobile/inp/m/ord", new StringContent(JsonConvert.SerializeObject(ComboCoItem), System.Text.Encoding.UTF8, "application/json")))
                     {
                         if (response.IsSuccessStatusCode)
@@ -123,13 +122,15 @@ namespace ROBO_Mobile.ViewModels
                 // (DateEdit) 입고일자 = 현재
                 this.InpDt = DateTime.Now.Date;
                 // (NumericEdit) 일고수량 = 발주수량
-                this.InpQty = InItemMst.ITM_QTY;
+                //this.InpQty = InItemMst.ITM_QTY;
+                // 한개씩 원청바코드 입력
+                this.InpQty = 1.0;
                 // (TextEdit) 원청바코드
                 this.LotBarCo = "";
 
 
                 // 탭 활성화 "true"
-                this.IsOpenPopup = true;
+                if (this.IsOpenPopup == false) this.IsOpenPopup = true;
             }
             catch (Exception eLog)
             {
@@ -180,50 +181,60 @@ namespace ROBO_Mobile.ViewModels
             {
                 if (this.IsM_INSERT)
                 {
-                    var updateDao = GetDomain();
-
-                    int _Num = 0;
-
-
-                    // 발주 조회
-                    using (client = new HttpClient())
+                    if (String.IsNullOrEmpty(LotBarCo))
                     {
-                        client.BaseAddress = new Uri(HTTP_URL);
-                        client.DefaultRequestHeaders.Accept.Clear();
-                        client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-                        using (HttpResponseMessage response = await client.PostAsync("mobile/inp/m/i", new StringContent(JsonConvert.SerializeObject(updateDao), System.Text.Encoding.UTF8, "application/json")))
+                        //실패
+                        await App.Current.MainPage.DisplayAlert(Title + " - 유효검사 ", "[원청바코드] 를 입력하세요", "OK");
+                    }
+                    else
+                    {
+                        // 원청바코드 중복검사 (없을 경우 true)
+                        if (await ValueLotValidate(LotBarCo) == true)
                         {
-                            if (response.IsSuccessStatusCode)
+                            var updateDao = GetDomain();
+
+                            int _Num = 0;
+
+                            // 발주 조회
+                            using (client = httpClient())
                             {
-                                string resultMsg = await response.Content.ReadAsStringAsync();
-                                if (int.TryParse(resultMsg, out _Num) == false)
+                                using (HttpResponseMessage response = await client.PostAsync("mobile/inp/m/i", new StringContent(JsonConvert.SerializeObject(updateDao), System.Text.Encoding.UTF8, "application/json")))
                                 {
-                                    //실패
-                                    await App.Current.MainPage.DisplayAlert(Title + " - 입고 탭 등록 오류", resultMsg, "OK");
-                                    return;
+                                    if (response.IsSuccessStatusCode)
+                                    {
+                                        string resultMsg = await response.Content.ReadAsStringAsync();
+                                        if (int.TryParse(resultMsg, out _Num) == false)
+                                        {
+                                            //실패
+                                            await App.Current.MainPage.DisplayAlert(Title + " - 입고 탭 등록 오류", resultMsg, "OK");
+                                            return;
+                                        }
+                                    }
+                                    // 성공
+                                    await App.Current.MainPage.DisplayAlert(Title + " - 입고 등록", "입고되었습니다", "OK");
+
+
+                                    // 발주 다시 조회
+                                    CoChangeInMst();
                                 }
                             }
-                            // 성공
-                            await App.Current.MainPage.DisplayAlert(Title + " - 입고 등록", "입고되었습니다,", "OK");
 
+                            // 초기화
+                            // (DateEdit) 입고일자 초기화
+                            //this.InpDt = DateTime.Now.Date;
+                            // (NumericEdit) 초기화
+                            //this.InpQty = 0.0;
+                            // (TextEdit) 원청바코드
+                            //this.LotBarCo = "";
+                            // 탭 (활성화) 유지 "true"
+                            //this.IsOpenPopup = true;
 
-                            // 발주 다시 조회
-                            CoChangeInMst();
+                            // (NumericEdit.HasError) 오류 유효검사
+                            this.ActualHasError = false;
+                            // 초기화 & 추가 입력
+                            GridTapped();
                         }
                     }
-
-                    // 초기화
-                    // (DateEdit) 입고일자 초기화
-                    this.InpDt = DateTime.Now.Date;
-                    // (NumericEdit) 초기화
-                    this.InpQty = 0.0;
-                    // (NumericEdit.HasError) 오류 유효검사
-                    this.ActualHasError = false;
-                    // (TextEdit) 원청바코드
-                    this.LotBarCo = "";
-                    // 탭 비활성화 "true"
-                    this.IsOpenPopup = false;
                 }                
             }
             catch (Exception eLog)
@@ -232,6 +243,60 @@ namespace ROBO_Mobile.ViewModels
                 return;
             }
         }
+
+        /// <summary>
+        /// 원청바코드 중복검사를 진행합니다.
+        /// JSON 통해 서버로부터 정보를 조회합니다.
+        /// </summary>
+        /// <param name="barCd"></param>
+        /// <returns></returns>
+        private async Task<bool> ValueLotValidate(string barCd)
+        {
+            var ret = false;
+
+            try
+            {
+                // 바코드 입력을 안할 경우
+                if (String.IsNullOrEmpty(LotBarCo))
+                {
+                    // 경고
+                    await App.Current.MainPage.DisplayAlert(Title + " - 유효검사 ", "[원청바코드] 를 입력하세요", "OK");
+                }
+                else
+                {
+                    using (client = httpClient())
+                    {
+                        using (HttpResponseMessage response = await client.PostAsync("mobile/inp/lot/count"
+                                                                              , new StringContent(JsonConvert.SerializeObject(new MobileVo() { LOT_NO = barCd, CHNL_CD = this.CHNL_CD }), System.Text.Encoding.UTF8, "application/json")))
+                        {
+                            if (response.IsSuccessStatusCode)
+                            {
+                                var retNum = JsonConvert.DeserializeObject<int>(await response.Content.ReadAsStringAsync());
+
+                                // 동일한 바코드가 없을 경우
+                                if (retNum < 1)
+                                {
+                                    ret = true;
+                                }
+                                else
+                                {
+                                    // 경고
+                                    await App.Current.MainPage.DisplayAlert(Title + " - 유효검사", "동일한 [원청바코드] 가 존재합니다", "OK");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch(Exception eLog)
+            {
+                //실패
+                await App.Current.MainPage.DisplayAlert(Title + " - 원청바코드 유효 검사", eLog.Message, "OK");
+            }
+
+            return ret;
+        }
+
 
         private MobileVo GetDomain()
         {
@@ -298,6 +363,60 @@ namespace ROBO_Mobile.ViewModels
             }
         }
 
+        public Command BarCodeCommand { get; }
+
+        //바코드 호출
+        private async Task ExecuteBarCodeCommand()
+        {
+            // 바코드 스캔 시 입력창 잠시 닫음.
+            if (IsOpenPopup == true) IsOpenPopup = false;
+
+            ////바코드 저장
+            //IsAnalyzing = false;
+            //IsScanning = false;
+
+            //Device.BeginInvokeOnMainThread(async () =>
+            //{
+            //    Barcode = Result.Text;
+            //    Qty = "0";
+            //});
+
+            //IsAnalyzing = true;
+            //IsScanning = true;
+
+
+
+            //Device.BeginInvokeOnMainThread(async () =>
+            //{
+            var waitHandle = new EventWaitHandle(false, EventResetMode.AutoReset);
+            FullScreenScanning scanning = new FullScreenScanning();
+            scanning.Disappearing += (sender2, e2) =>
+            {
+                if (string.IsNullOrEmpty(scanning.BARCODE))
+                {
+                    // 바코드 스캔 종료 후 입력창 활성화.
+                    if (IsOpenPopup == false) IsOpenPopup = true;
+                    return;
+                }
+                else
+                {
+                    //App.Current.MainPage.DisplayAlert("스캔 바코드 - 원청 바코드", scanning.BARCODE, "Ok");
+                    LotBarCo = scanning.BARCODE;
+
+                    // 바코드 스캔 종료 후 입력창 활성화.
+                    if (IsOpenPopup == false) IsOpenPopup = true;
+                }
+            };
+
+            await App.Current.MainPage.Navigation.PushModalAsync(scanning);
+            await Task.Run(() => waitHandle.WaitOne());
+            ///App.Current.MainPage.DisplayAlert("", scanning.BARCODE, "Ok");
+            //await Shell.Current.GoToAsync(nameof(FullScreenScanning));
+            //Barcode = Application.Current.Properties["BARCODE_1"] as string;
+            //Qty = "0";
+            //});
+
+        }
 
         //async public void OnAppearing()
         //{
@@ -309,6 +428,11 @@ namespace ROBO_Mobile.ViewModels
         //    //}
         //}
 
+
+        /// <summary>
+        /// MVVM 방식으로 View 필요한 데이터를 바인딩합니다.
+        /// </summary>
+        #region MVVM 방식으로 View 필요한 데이터를 바인딩합니다.
 
         private IList<MobileVo> CoList = new List<MobileVo>();
         public IList<MobileVo> ComboCoList
@@ -402,6 +526,27 @@ namespace ROBO_Mobile.ViewModels
             get => this.lotBarCo;
             set => SetProperty(ref this.lotBarCo, value);
         }
+        
+        #endregion
 
+
+
+        public HttpClient httpClient()
+        {
+            var ret = new HttpClient();
+
+            try
+            {
+                ret.BaseAddress = new Uri(HTTP_URL);
+                ret.DefaultRequestHeaders.Accept.Clear();
+                ret.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            }
+            catch(Exception ex)
+            {
+
+            }
+
+            return ret;
+        }
     }
 }

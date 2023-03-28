@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uJeQyvC7aZK52oMULVk+f/eGYMevkURpPtmIgAtDeglc2B3a1W8TCconhHV7LIVYWgzK9y23fEGFmOvC7+rlpw==",
+  "dgSpecHash": "YEPHjYUf9qUH9/lQTzzeWcHEuH1xHsMLvyPcome04rvDWP+ASy2Ft/JdS6PIaPbHOca4P8V5yaoQDwyUfHZfPQ==",
   "success": true,
   "projectFilePath": "E:\\WebService\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile\\ROBO_Mobile.csproj",
   "expectedPackageFiles": [
@@ -19,7 +19,9 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Users\\IEG\\.nuget\\packages\\xamarin.ffimageloading\\2.4.11.982\\xamarin.ffimageloading.2.4.11.982.nupkg.sha512",
     "C:\\Users\\IEG\\.nuget\\packages\\xamarin.ffimageloading.forms\\2.4.11.982\\xamarin.ffimageloading.forms.2.4.11.982.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\zxing.net.mobile\\2.4.1\\zxing.net.mobile.2.4.1.nupkg.sha512",
+    "C:\\Users\\IEG\\.nuget\\packages\\zxing.net.mobile.forms\\2.4.1\\zxing.net.mobile.forms.2.4.1.nupkg.sha512"
   ],
   "logs": []
 }

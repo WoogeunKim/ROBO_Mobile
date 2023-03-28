@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zxing:ZXingScannerPage xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        x:Class="ROBO_Mobile.Views.Dialog.FullScreenScanning"
+                        xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+                        Title="바코드 리더기" OnScanResult="Handle_OnScanResult" IsScanning="true" >
+
+    <!--<Button x:Name="btn_Cancel" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"></Button>-->
+    <!--<zxing:ZXingScannerPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start" BackgroundColor="Transparent">
+            <Button x:Name="btn_Cancel" Text="취소" HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="취소" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+        </StackLayout>
+    </zxing:ZXingScannerPage.Content>-->
+</zxing:ZXingScannerPage>

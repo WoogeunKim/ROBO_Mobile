@@ -42,6 +42,7 @@ public class MonoPackageManager_Resources {
 		"DevExpress.XamarinForms.Navigation.dll",
 		"DevExpress.XamarinForms.Scheduler.Android.dll",
 		"DevExpress.XamarinForms.Scheduler.dll",
+		"FastAndroidCamera.dll",
 		"FFImageLoading.dll",
 		"FFImageLoading.Forms.dll",
 		"FFImageLoading.Forms.Platform.dll",
@@ -62,6 +63,11 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Jetbrains.Annotations.dll",
 		"Xamarin.Kotlin.StdLib.Common.dll",
 		"Xamarin.Kotlin.StdLib.dll",
+		"ZXing.Net.Mobile.Core.dll",
+		"ZXing.Net.Mobile.Forms.Android.dll",
+		"ZXing.Net.Mobile.Forms.dll",
+		"zxing.portable.dll",
+		"ZXingNetMobile.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};
