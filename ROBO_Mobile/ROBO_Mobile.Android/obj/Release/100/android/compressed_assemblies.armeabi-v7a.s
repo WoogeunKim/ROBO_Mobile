@@ -307,7 +307,7 @@
 
 	/* 31: ROBO_Mobile.dll */
 	/* uncompressed_file_size */
-	.long	723968
+	.long	785920
 	/* loaded */
 	.byte	0
 	/* data */

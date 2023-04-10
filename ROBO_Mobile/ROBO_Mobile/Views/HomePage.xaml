@@ -47,7 +47,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="150"/>
                 <RowDefinition Height="150"/>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -88,7 +89,7 @@
                        Aspect="AspectFit" 
                        HeightRequest="25"
                        WidthRequest="25" Grid.Row="0" />
-                    <Label Text="품목입고" FontSize="14" HorizontalTextAlignment="Center" Grid.Row="1" TextColor="Red" />
+                    <Label Text="원자재입고" FontSize="14" HorizontalTextAlignment="Center" Grid.Row="1" TextColor="Red" />
                 </Grid>
             </Frame>
 
@@ -114,7 +115,7 @@
                        Aspect="AspectFit"
                        HeightRequest="25"
                        WidthRequest="25" Grid.Row="0" />
-                    <Label Text="품목출고" FontSize="14" HorizontalTextAlignment="Center" Grid.Row="1" TextColor="Red" />
+                    <Label Text="원자재출고" FontSize="14" HorizontalTextAlignment="Center" Grid.Row="1" TextColor="Red" />
                 </Grid>
             </Frame>
 
@@ -140,7 +141,7 @@
                        Aspect="AspectFit"
                        HeightRequest="25"
                        WidthRequest="25" Grid.Row="0" />
-                    <Label Text="제품입고" FontSize="14" HorizontalTextAlignment="Center" Grid.Row="1" TextColor="Red" />
+                    <Label Text="기타입고" FontSize="14" HorizontalTextAlignment="Center" Grid.Row="1" TextColor="Red" />
                 </Grid>
             </Frame>
 
@@ -167,6 +168,32 @@
                        HeightRequest="25"
                        WidthRequest="25" Grid.Row="0" />
                     <Label Text="제품출하" FontSize="14" HorizontalTextAlignment="Center" Grid.Row="1" TextColor="Red" />
+                </Grid>
+            </Frame>
+
+            <Frame Grid.Row="4" Grid.Column="0" 
+                   Margin="20,0,0,0"
+                   BorderColor="Black"
+                   BackgroundColor="LightYellow"
+                   CornerRadius="20"
+                   HeightRequest="80"
+                   WidthRequest="80"
+                   IsClippedToBounds="True"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                <Grid>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Page05Command}"/>
+                    </Grid.GestureRecognizers>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="32"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="ic_other_in_MItem"
+                       Aspect="AspectFit"
+                       HeightRequest="25"
+                       WidthRequest="25" Grid.Row="0" />
+                    <Label Text="기존 바코드&#10;입고" FontSize="14" HorizontalTextAlignment="Center" Grid.Row="1" TextColor="Red" />
                 </Grid>
             </Frame>
 

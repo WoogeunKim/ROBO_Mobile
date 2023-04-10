@@ -180,6 +180,7 @@ path;obj\Debug\100\res\drawable\ic_drawer_button.xml
 path;obj\Debug\100\res\drawable\ic_in_mitem.xml
 path;obj\Debug\100\res\drawable\ic_info.xml
 path;obj\Debug\100\res\drawable\ic_logout.xml
+path;obj\Debug\100\res\drawable\ic_other_in_mitem.xml
 path;obj\Debug\100\res\drawable\ic_popup.xml
 path;obj\Debug\100\res\drawable\ic_scheduler.xml
 path;obj\Debug\100\res\drawable\ic_xamarin_logo.xml
@@ -313,6 +314,7 @@ vector;obj\Debug\100\res\drawable\ic_drawer_button.xml
 vector;obj\Debug\100\res\drawable\ic_in_mitem.xml
 vector;obj\Debug\100\res\drawable\ic_info.xml
 vector;obj\Debug\100\res\drawable\ic_logout.xml
+vector;obj\Debug\100\res\drawable\ic_other_in_mitem.xml
 vector;obj\Debug\100\res\drawable\ic_popup.xml
 vector;obj\Debug\100\res\drawable\ic_scheduler.xml
 vector;obj\Debug\100\res\drawable\ic_xamarin_logo.xml

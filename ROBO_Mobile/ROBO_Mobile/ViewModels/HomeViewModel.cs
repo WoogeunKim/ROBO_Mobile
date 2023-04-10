@@ -25,19 +25,30 @@ namespace ROBO_Mobile.ViewModels
             Page01Command = new Command(async () =>
             {
                 (App.Current.MainPage.BindingContext as MainViewModel).SelectedMenuItem = (App.Current.MainPage.BindingContext as MainViewModel).MenuItems[1];
-                await Navigation.NavigateToAsync<DataGridViewModel>();
+                await Navigation.NavigateToAsync<DataGridViewModel> ();
                 //await (App.Current.MainPage.BindingContext as MainViewModel).Navigation.NavigateToAsync<ImportOrderMViewModel>();
             }, () => true);
-            ////await Navigation.NavigateToAsync<ItemsViewModel>());
-            //Page02Command = new Command(async () => {
-            //    (App.Current.MainPage.BindingContext as MainViewModel).SelectedMenuItem = (App.Current.MainPage.BindingContext as MainViewModel).MenuItems[2];
-            //    await (App.Current.MainPage.BindingContext as MainViewModel).Navigation.NavigateToAsync<DataGridViewModel>();
-            //}, () => true);
+
+            Page03Command = new Command(async () =>
+            {
+                (App.Current.MainPage.BindingContext as MainViewModel).SelectedMenuItem = (App.Current.MainPage.BindingContext as MainViewModel).MenuItems[2];
+                await Navigation.NavigateToAsync<OtherInCaseViewModel>();
+                //await (App.Current.MainPage.BindingContext as MainViewModel).Navigation.NavigateToAsync<ImportOrderMViewModel>();
+            }, () => true);
+
+            Page05Command = new Command(async () =>
+            {
+                (App.Current.MainPage.BindingContext as MainViewModel).SelectedMenuItem = (App.Current.MainPage.BindingContext as MainViewModel).MenuItems[3];
+                await (App.Current.MainPage.BindingContext as MainViewModel).Navigation.NavigateToAsync<MtrlReturnInViewModel>();
+            }, () => true);
+
+            Page02Command = new Command(async () =>
+            {
+                (App.Current.MainPage.BindingContext as MainViewModel).SelectedMenuItem = (App.Current.MainPage.BindingContext as MainViewModel).MenuItems[4];
+                await (App.Current.MainPage.BindingContext as MainViewModel).Navigation.NavigateToAsync<MtrlOutViewModel>();
+            }, () => true);
+
             ////await Navigation.NavigateToAsync<DataGridViewModel>());
-            //Page03Command = new Command(async () => {
-            //    (App.Current.MainPage.BindingContext as MainViewModel).SelectedMenuItem = (App.Current.MainPage.BindingContext as MainViewModel).MenuItems[1];
-            //    await (App.Current.MainPage.BindingContext as MainViewModel).Navigation.NavigateToAsync<ItemsViewModel>();
-            //}, () => true);
             //Page04Command = new Command(async () => {
             //    (App.Current.MainPage.BindingContext as MainViewModel).SelectedMenuItem = (App.Current.MainPage.BindingContext as MainViewModel).MenuItems[2];
             //    await (App.Current.MainPage.BindingContext as MainViewModel).Navigation.NavigateToAsync<DataGridViewModel>();
@@ -46,7 +57,7 @@ namespace ROBO_Mobile.ViewModels
             Refresh();
         }
 
-        public async void Refresh()
+        public void Refresh()
         {
             loginDt  = DateTime.Today.ToString("yyyy년  MM월 dd일");
             userInfo = "[" + USR_NM + "] 님이 \n" + "접속하셨습니다.";
@@ -58,6 +69,7 @@ namespace ROBO_Mobile.ViewModels
         public ICommand Page02Command { get; }
         public ICommand Page03Command { get; }
         public ICommand Page04Command { get; }
+        public ICommand Page05Command { get; }
 
         public string LoginDT
         {

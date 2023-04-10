@@ -15,8 +15,9 @@ namespace ROBO_Mobile.ViewModels
             MenuItems = new ObservableCollection<CustomDrawerMenuItem>();
             MenuItems.Add(new CustomDrawerMenuItem() { Name = "Home", ViewModelType = typeof(HomeViewModel), ImageName = "ic_info" });
             MenuItems.Add(new CustomDrawerMenuItem() { Name = "원자재 입고", ViewModelType = typeof(DataGridViewModel), ImageName = "ic_browse" });
-            //MenuItems.Add(new CustomDrawerMenuItem() { Name = "Scheduler", ViewModelType = typeof(SchedulerViewModel), ImageName = "ic_scheduler" });
-            //MenuItems.Add(new CustomDrawerMenuItem() { Name = "DataGrid", ViewModelType = typeof(DataGridViewModel), ImageName = "ic_datagrid" });
+            MenuItems.Add(new CustomDrawerMenuItem() { Name = "기타 입고", ViewModelType = typeof(OtherInCaseViewModel), ImageName = "ic_browse" });
+            MenuItems.Add(new CustomDrawerMenuItem() { Name = "기존 바코드 입고", ViewModelType = typeof(MtrlReturnInViewModel), ImageName = "ic_browse" });
+            MenuItems.Add(new CustomDrawerMenuItem() { Name = "원자재 출고", ViewModelType = typeof(MtrlOutViewModel), ImageName = "ic_scheduler" });
             //MenuItems.Add(new CustomDrawerMenuItem() { Name = "Charts", ViewModelType = typeof(ChartsViewModel), ImageName = "ic_charts" });
             //MenuItems.Add(new CustomDrawerMenuItem() { Name = "Popup", ViewModelType = typeof(PopupViewModel), ImageName = "ic_popup" });
             MenuItems.Add(new CustomDrawerMenuItem() { Name = "Logout", ViewModelType = typeof(LoginViewModel), ImageName = "ic_logout" });

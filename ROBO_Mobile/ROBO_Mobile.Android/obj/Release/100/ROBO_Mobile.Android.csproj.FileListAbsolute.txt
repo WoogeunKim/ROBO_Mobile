@@ -798,3 +798,5 @@ E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\androi
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\androidx\proguard\dcab32da-c792-47ca-93f6-ded4662fc58d.txt
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\androidx\proguard\f14379c4-bd93-4d0e-ab63-e60a8865598b.txt
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\bin\Release\Xam.Plugin.AutoUpdate.Droid.dll.mdb
+E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\res\drawable\ic_other_in_mitem.xml
+E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\androidx\cecil\ic_other_in_mitem.xml

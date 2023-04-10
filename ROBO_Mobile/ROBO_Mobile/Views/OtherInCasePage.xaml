@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxg="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+             xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
+             xmlns:dxp="http://schemas.devexpress.com/xamarin/2014/forms/popup"  
+             xmlns:dxcv="http://schemas.devexpress.com/xamarin/2014/forms/collectionview"
+             xmlns:templates="clr-namespace:ROBO_Mobile.Views.Templates" 
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource NormalBackgroundColor}"
+             x:Class="ROBO_Mobile.Views.OtherInCasePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="SeparatorStyle" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="{DynamicResource EditorSettingsSeparatorColor}"/>
+                <Setter Property="HeightRequest" Value="1"/>
+            </Style>
+            
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <templates:DrawerTitleView/>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <dxe:ComboBoxEdit LabelText="강종" Grid.Row="0" Margin="10,5" ItemsSource="{Binding ComboN1stGrpList}" SelectedItem="{Binding N1stGrpItem, Mode=TwoWay}" DisplayMember="ITM_GRP_NM" ValueMember="ITM_GRP_CD" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" >
+                <dxe:ComboBoxEdit.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding ITM_GRP_CD}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="1" Text="{Binding ITM_GRP_NM}" HorizontalTextAlignment="Start"  VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </dxe:ComboBoxEdit.ItemTemplate>
+            </dxe:ComboBoxEdit>
+
+            <dxe:ComboBoxEdit LabelText="규격" Grid.Row="1" Margin="10,5" ItemsSource="{Binding ComboN2ndGrpList}" SelectedItem="{Binding N2ndGrpItem, Mode=TwoWay}" DisplayMember="ITM_GRP_CD" ValueMember="ITM_GRP_CD" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" >
+                <dxe:ComboBoxEdit.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <!--<ColumnDefinition Width="*"/>-->
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding ITM_GRP_CD}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <!--<Label Grid.Column="1" Text="{Binding ITM_GRP_NM}" HorizontalTextAlignment="Start"  VerticalTextAlignment="Center"/>-->
+                        </Grid>
+                    </DataTemplate>
+                </dxe:ComboBoxEdit.ItemTemplate>
+            </dxe:ComboBoxEdit>
+
+            <dxe:ComboBoxEdit LabelText="길이" Grid.Row="2" Margin="10,5" ItemsSource="{Binding ComboLenList}" SelectedItem="{Binding LenItem, Mode=TwoWay}" DisplayMember="ITM_LEN" ValueMember="ITM_CD" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" >
+                <dxe:ComboBoxEdit.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding ITM_CD}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="1" Text="{Binding ITM_LEN}" HorizontalTextAlignment="End"  VerticalTextAlignment="Center" Padding="24,8"/>
+                        </Grid>
+                    </DataTemplate>
+                </dxe:ComboBoxEdit.ItemTemplate>
+            </dxe:ComboBoxEdit>
+
+            <dxe:TextEdit LabelText="품목" Grid.Row="4" Margin="10,5" Text="{Binding LenItem.ITM_CD}" IsEnabled="False" TextHorizontalAlignment="Center" BorderColor="Black" TextColor="Black" FocusedLabelColor="DarkOrange" />
+
+
+            <dxe:ComboBoxEdit LabelText="수불유형" Grid.Row="5" Margin="10,5" ItemsSource="{Binding ComboInaudList}" SelectedItem="{Binding InaudItem, Mode=TwoWay}" DisplayMember="CLSS_DESC" ValueMember="CLSS_CD" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" TextHorizontalAlignment="Center">
+                <dxe:ComboBoxEdit.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding CLSS_CD}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="1" Text="{Binding CLSS_DESC}" HorizontalTextAlignment="Start"  VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </dxe:ComboBoxEdit.ItemTemplate>
+            </dxe:ComboBoxEdit>
+
+            <dxe:ComboBoxEdit LabelText="창고" Grid.Row="6" Margin="10,5" ItemsSource="{Binding ComboLocList}" SelectedItem="{Binding LocItem, Mode=TwoWay}" DisplayMember="CLSS_DESC" ValueMember="CLSS_CD" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" TextHorizontalAlignment="Center">
+                <dxe:ComboBoxEdit.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding CLSS_CD}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="1" Text="{Binding CLSS_DESC}" HorizontalTextAlignment="Start"  VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </dxe:ComboBoxEdit.ItemTemplate>
+            </dxe:ComboBoxEdit>
+
+
+            <dxe:DateEdit Grid.Row="7" 
+                          Margin="10,5" 
+                          TextHorizontalAlignment="Center" 
+                          Date="{Binding InpDt, Mode=TwoWay}"
+                          DisplayFormat="yyyy-MM-dd"
+                          HelpText="입고일자를 입력하세요." />
+
+            <dxe:NumericEdit
+                          Grid.Row="8" 
+                          Margin="10,5" 
+                          TextHorizontalAlignment="End" 
+                          DisplayFormat="###,###,###,##0"
+                          Value="{Binding InpQty, Mode=TwoWay}"                         
+                          HasError="{Binding ActualHasError}"
+                          ErrorText="{Binding ActualErrorText}"
+                          HelpText="가닥수량을 입력하세요." />
+
+
+            <StackLayout Orientation="Horizontal" 
+                         Grid.Row="9" 
+                         Padding="24,8"                               
+                         HorizontalOptions="Fill">
+                <!--PressedBackgroundColor="{StaticResource MainPageBackgroundColor}"-->
+                <!--Clicked="DeleteClick"-->
+
+                <dxe:SimpleButton Text="닫기"
+                                  Icon="collectionview_deletetask"
+                                  IconColor="#ff5e61"
+                                  TextColor="#ff5e61"
+                                  Padding="24,8"
+                                  IconIndent="16"
+                                  HorizontalContentAlignment="Center"
+                                  HorizontalOptions="StartAndExpand"
+                                  VerticalOptions="Fill"
+                                  BackgroundColor="Transparent" 
+                                  Command="{Binding CancelButtonCommand}"/>
+
+                <dxe:SimpleButton Text="등록"
+                                  Icon="collectionview_deletetask"
+                                  IconColor="#ff5e61"
+                                  TextColor="#ff5e61"
+                                  Padding="24,8"
+                                  IconIndent="16"
+                                  HorizontalContentAlignment="Center"
+                                  VerticalOptions="Fill"
+                                  BackgroundColor="Transparent" 
+                                  IsEnabled="{Binding IsM_INSERT}"
+                                  Command="{Binding OKButtonCommand}"/>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

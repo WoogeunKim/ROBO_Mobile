@@ -44,6 +44,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\MtrlReturnInPage.xaml.cs">
+      <DependentUpon>MtrlReturnInPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MtrlOutPage.xaml.cs">
+      <DependentUpon>MtrlOutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\OtherInCasePage.xaml.cs">
+      <DependentUpon>OtherInCasePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>

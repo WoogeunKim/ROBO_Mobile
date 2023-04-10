@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxg="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+             xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
+             xmlns:dxp="http://schemas.devexpress.com/xamarin/2014/forms/popup"  
+             xmlns:dxcv="http://schemas.devexpress.com/xamarin/2014/forms/collectionview"
+             xmlns:templates="clr-namespace:ROBO_Mobile.Views.Templates" 
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource NormalBackgroundColor}"
+             x:Class="ROBO_Mobile.Views.MtrlOutPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SeparatorStyle" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="{DynamicResource EditorSettingsSeparatorColor}"/>
+                <Setter Property="HeightRequest" Value="1"/>
+            </Style>                        
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <templates:DrawerTitleView/>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <Grid>
+
+            <!--BackgroundColor="#233156"-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"
+                       HorizontalTextAlignment="Center" 
+                       VerticalOptions="End"
+                       Text="투입자재 바코드 스캔" 
+                       FontSize="Large"
+                       Margin="5,0"/>
+
+                <ImageButton Grid.Row="1"
+                             Margin="5,10,5,50"
+                             BackgroundColor="White" 
+                             Command="{Binding BarCodeCommand}"
+                             Source="barcode"
+                             Aspect="AspectFit"
+                             HeightRequest="25"
+                             WidthRequest="25" />
+            </Grid>
+
+            <!-- 바코그 스캔 후 창을 통해 정보 확인 후 출고 -->
+            <dxp:DXPopup IsOpen="{Binding IsOpenPopup}"
+                         AllowScrim="True"
+                         VerticalAlignment="Bottom"
+                         HorizontalAlignment="Stretch"
+                         Margin="16"
+                         CornerRadius="16">
+                <StackLayout Orientation="Vertical">
+                    <Label Text="{Binding MstItmDao.LOT_NO}"
+                           Margin="24,16,24,14"
+                           HorizontalTextAlignment="Center"
+                           TextColor="Black" 
+                           FontSize="Medium" />
+
+                    <BoxView Style="{StaticResource SeparatorStyle}" Margin="24,0"/>
+
+                    <dxe:TextEdit BoxPadding="24,8"
+                                  BoxHeight="50"
+                                  HorizontalOptions="Fill"
+                                  TextHorizontalAlignment="Center" 
+                                  HelpText="원청바코드" 
+                                  Margin="5,0"
+                                  IsEnabled="False"
+                                  Text="{Binding MstItmDao.ORD_NO}"/>
+
+                    <dxe:TextEdit BoxPadding="24,8"
+                                  BoxHeight="50"
+                                  HorizontalOptions="Fill"
+                                  TextHorizontalAlignment="Center" 
+                                  HelpText="품목명" 
+                                  Margin="5,0"
+                                  IsEnabled="False"
+                                  Text="{Binding MstItmDao.ITM_CD}"/>
+
+                    <dxe:NumericEdit
+                                  BoxPadding="24,8"
+                                  BoxHeight="50"
+                                  TextHorizontalAlignment="End" 
+                                  Value="{Binding MstItmDao.ITM_QTY}"
+                                  Margin="5,0"
+                                  IsEnabled="False"
+                                  HelpText="가닥수량" />
+                    <!--ValueChangedCommand="{Binding InpQtyValueChangedCommand}"-->
+
+
+                    <StackLayout Orientation="Horizontal" 
+                                 Padding="12,8"                                  
+                                 HorizontalOptions="Fill">
+                        <dxe:SimpleButton Text="취소"
+                                          Icon="collectionview_deletetask"
+                                          IconColor="#ff5e61"
+                                          TextColor="#ff5e61"
+                                          Padding="24,8"
+                                          IconIndent="16"
+                                          HorizontalContentAlignment="Center"
+                                          HorizontalOptions="StartAndExpand"
+                                          VerticalOptions="Fill"
+                                          BackgroundColor="Transparent" 
+                                          Command="{Binding CancelButtonCommand}"/>
+
+                        <dxe:SimpleButton Text="출고"
+                                          Icon="collectionview_deletetask"
+                                          IconColor="#ff5e61"
+                                          TextColor="#ff5e61"
+                                          Padding="24,8"
+                                          IconIndent="16"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalOptions="Fill"
+                                          BackgroundColor="Transparent" 
+                                          Command="{Binding OKButtonCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+
+            </dxp:DXPopup>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

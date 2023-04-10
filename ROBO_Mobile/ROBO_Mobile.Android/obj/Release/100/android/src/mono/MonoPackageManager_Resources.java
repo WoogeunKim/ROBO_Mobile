@@ -20,7 +20,6 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.SwipeRefreshLayout.dll",
 		"Xamarin.AndroidX.ViewPager.dll",
 		"Xamarin.Google.Android.Material.dll",
-		"ROBO_Mobile.Android.dll",
 		"Xam.Plugin.AutoUpdate.dll",
 		"DevExpress.Xamarin.Android.Charts.dll",
 		"DevExpress.Xamarin.Android.CollectionView.dll",
@@ -68,6 +67,7 @@ public class MonoPackageManager_Resources {
 		"ZXing.Net.Mobile.Forms.dll",
 		"zxing.portable.dll",
 		"ZXingNetMobile.dll",
+		"ROBO_Mobile.Android.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

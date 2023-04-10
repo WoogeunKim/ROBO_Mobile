@@ -91,7 +91,6 @@ namespace ROBO_Mobile.ViewModels
 
                             if (InItmMstList.Count > 0)
                             {
-
                                 InItemMst = InItmMstList[0];
                             }
                         }
@@ -122,11 +121,11 @@ namespace ROBO_Mobile.ViewModels
                 // (DateEdit) 입고일자 = 현재
                 this.InpDt = DateTime.Now.Date;
                 // (NumericEdit) 일고수량 = 발주수량
-                //this.InpQty = InItemMst.ITM_QTY;
-                // 한개씩 원청바코드 입력
-                this.InpQty = 1.0;
+                // this.InpQty = InItemMst.ITM_QTY;
+                // 포장단위 입력
+                this.InpQty = InItemMst.ITM_PAK_QTY;
                 // (TextEdit) 원청바코드
-                this.LotBarCo = "";
+                this.LotBarCo = default(string);
 
 
                 // 탭 활성화 "true"
@@ -152,10 +151,10 @@ namespace ROBO_Mobile.ViewModels
         {
             try
             {
-                // (DateEdit) 입고일자 초기화
-                this.InpDt = DateTime.Now.Date;
-                // (NumericEdit) 초기화
-                this.InpQty = 0.0;
+                //// (DateEdit) 입고일자 초기화
+                //this.InpDt = DateTime.Now.Date;
+                //// (NumericEdit) 초기화
+                //this.InpQty = 0.0;
                 // (NumericEdit.HasError) 오류 유효검사
                 this.ActualHasError = false;
                 // 탭 비활성화 "true"
@@ -181,61 +180,54 @@ namespace ROBO_Mobile.ViewModels
             {
                 if (this.IsM_INSERT)
                 {
-                    if (String.IsNullOrEmpty(LotBarCo))
+                    // 원청바코드 중복검사 (없을 경우 true)
+                    //if (await ValueLotValidate(LotBarCo) == true)
+                    //{
+                    var updateDao = GetDomain();
+
+                    int _Num = 0;
+
+                    // 발주 조회
+                    using (client = httpClient())
                     {
-                        //실패
-                        await App.Current.MainPage.DisplayAlert(Title + " - 유효검사 ", "[원청바코드] 를 입력하세요", "OK");
-                    }
-                    else
-                    {
-                        // 원청바코드 중복검사 (없을 경우 true)
-                        if (await ValueLotValidate(LotBarCo) == true)
+                        using (HttpResponseMessage response = await client.PostAsync("mobile/inp/m/i", new StringContent(JsonConvert.SerializeObject(updateDao), System.Text.Encoding.UTF8, "application/json")))
                         {
-                            var updateDao = GetDomain();
-
-                            int _Num = 0;
-
-                            // 발주 조회
-                            using (client = httpClient())
+                            if (response.IsSuccessStatusCode)
                             {
-                                using (HttpResponseMessage response = await client.PostAsync("mobile/inp/m/i", new StringContent(JsonConvert.SerializeObject(updateDao), System.Text.Encoding.UTF8, "application/json")))
+                                string resultMsg = await response.Content.ReadAsStringAsync();
+                                if (int.TryParse(resultMsg, out _Num) == false)
                                 {
-                                    if (response.IsSuccessStatusCode)
-                                    {
-                                        string resultMsg = await response.Content.ReadAsStringAsync();
-                                        if (int.TryParse(resultMsg, out _Num) == false)
-                                        {
-                                            //실패
-                                            await App.Current.MainPage.DisplayAlert(Title + " - 입고 탭 등록 오류", resultMsg, "OK");
-                                            return;
-                                        }
-                                    }
-                                    // 성공
-                                    await App.Current.MainPage.DisplayAlert(Title + " - 입고 등록", "입고되었습니다", "OK");
-
-
-                                    // 발주 다시 조회
-                                    CoChangeInMst();
+                                    //실패
+                                    await App.Current.MainPage.DisplayAlert(Title + " - 입고 탭 등록 오류", resultMsg, "OK");
+                                    return;
                                 }
                             }
+                            // 성공
+                            await App.Current.MainPage.DisplayAlert(Title + " - 입고 등록", "입고되었습니다", "OK");
 
-                            // 초기화
-                            // (DateEdit) 입고일자 초기화
-                            //this.InpDt = DateTime.Now.Date;
-                            // (NumericEdit) 초기화
-                            //this.InpQty = 0.0;
-                            // (TextEdit) 원청바코드
-                            //this.LotBarCo = "";
-                            // 탭 (활성화) 유지 "true"
-                            //this.IsOpenPopup = true;
 
-                            // (NumericEdit.HasError) 오류 유효검사
-                            this.ActualHasError = false;
-                            // 초기화 & 추가 입력
-                            GridTapped();
+                            // 발주 다시 조회
+                            CoChangeInMst();
                         }
                     }
-                }                
+
+                    // 초기화
+                    // (DateEdit) 입고일자 초기화
+                    //this.InpDt = DateTime.Now.Date;
+                    // (NumericEdit) 초기화
+                    //this.InpQty = 0.0;
+                    // (TextEdit) 원청바코드
+                    //this.LotBarCo = "";
+                    // 탭 (활성화) 유지 "true"
+                    //this.IsOpenPopup = true;
+
+                    // (NumericEdit.HasError) 오류 유효검사
+                    this.ActualHasError = false;
+                    // 초기화 & 추가 입력
+                    GridTapped();
+
+                    //}
+                }           
             }
             catch (Exception eLog)
             {
@@ -260,7 +252,10 @@ namespace ROBO_Mobile.ViewModels
                 if (String.IsNullOrEmpty(LotBarCo))
                 {
                     // 경고
-                    await App.Current.MainPage.DisplayAlert(Title + " - 유효검사 ", "[원청바코드] 를 입력하세요", "OK");
+                    //await App.Current.MainPage.DisplayAlert(Title + " - 유효검사 ", "[원청바코드] 를 입력하세요", "OK");
+
+                    // 원청바코드 파손 등 입력이 불가할 시 "미기입" 필요
+                    ret = true;
                 }
                 else
                 {
@@ -308,11 +303,14 @@ namespace ROBO_Mobile.ViewModels
             ret.ITM_CD = InItemMst.ITM_CD;
 
             ret.ITM_QTY = InpQty;
-            ret.LOT_NO = LotBarCo;
+            ret.ORD_NO = LotBarCo;
             ret.INAUD_DT = InpDt.ToString("yyyy-MM-dd");
 
+            ret.INAUD_CD = "RGU";
+            ret.LOC_CD = "002";
+
             ret.CHNL_CD = this.CHNL_CD;
-            ret.AREA_CD = "001";
+            ret.AREA_CD = "002";
             ret.CRE_USR_ID = USER_ID;
 
             return ret;
@@ -336,14 +334,14 @@ namespace ROBO_Mobile.ViewModels
                 // 입력한 수량이 정수가 아닐 경우
                 if (int.TryParse(InpQty.ToString(), out _Num) == false)
                 {
-                    this.ActualErrorText = "입고수량을 정수형태로 입력하세요";
+                    this.ActualErrorText = "가닥수량을 정수형태로 입력하세요";
                     this.ActualHasError = true;
                     // 입고확인 버튼 비활성화
                     this.IsM_INSERT = false;
                 }
                 else if (int.Parse(InpQty.ToString()) <= 0)
                 {
-                    this.ActualErrorText = "수량을 다시 입력하세요";
+                    this.ActualErrorText = "가닥수량을 다시 입력하세요";
                     this.ActualHasError = true;
                     // 입고확인 버튼 비활성화
                     this.IsM_INSERT = false;
