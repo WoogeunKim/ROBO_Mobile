@@ -65,8 +65,6 @@ com.google.android.material.tabs.TabLayout;E:\WebService\ROBO_Mobile\ROBO_Mobile
 com.google.android.material.tabs.TabLayout;E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\lp\64\jl\res\layout\rootlayout.xml
 com.google.android.material.tabs.TabLayout;E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\lp\64\jl\res\layout\tabbar.xml
 corners;E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\lp\2\jl\res\drawable\ic_circle_shape.xml
-crc643f46942d9dd1fff9.ShellFlyoutLayout;E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\lp\64\jl\res\layout\flyoutcontent.xml
-crc64720bb2db43a66fe9.FormsViewPager;E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\lp\64\jl\res\layout\rootlayout.xml
 declare-styleable;E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\lp\0\jl\res\values\values.xml
 declare-styleable;E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\lp\2\jl\res\values\values.xml
 declare-styleable;E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile.Android\obj\Release\100\lp\5\jl\res\values\values.xml

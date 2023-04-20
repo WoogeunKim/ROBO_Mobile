@@ -18,7 +18,7 @@ namespace ROBO_Mobile.ViewModels
 
     public class MtrlOutViewModel : BaseViewModel
     {
-        private string _title = "원자재 출고";
+        private string _title = "원자재 투입";
 
         private string HTTP_URL = Application.Current.Properties["URL"] as string;
         private string CHNL_CD = Application.Current.Properties["CHNL_CD"] as string;
@@ -29,7 +29,7 @@ namespace ROBO_Mobile.ViewModels
 
         public MtrlOutViewModel()
         {
-            Title = "원자재 출고";
+            Title = "원자재 투입";
 
 
             BarCodeCommand = new Command(async () => await ExecuteBarCodeCommand());

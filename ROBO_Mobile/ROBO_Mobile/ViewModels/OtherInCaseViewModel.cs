@@ -95,7 +95,7 @@ namespace ROBO_Mobile.ViewModels
                 // 창고
                 using (client = httpClient())
                 {
-                    using (response = await client.PostAsync("mobile/inp/sys", new StringContent(JsonConvert.SerializeObject(new MobileVo() { CLSS_TP_CD = "L-100", CHNL_CD = this.CHNL_CD, DELT_FLG = "N" }), System.Text.Encoding.UTF8, "application/json")))
+                    using (response = await client.PostAsync("mobile/inp/sys", new StringContent(JsonConvert.SerializeObject(new MobileVo() { CLSS_TP_CD = "P-008", CHNL_CD = this.CHNL_CD, DELT_FLG = "N" }), System.Text.Encoding.UTF8, "application/json")))
                     {
                         if (response.IsSuccessStatusCode)
                         {
@@ -107,7 +107,7 @@ namespace ROBO_Mobile.ViewModels
                                 return;
                             }
 
-                            this.LocItem = this.ComboLocList.Where(x => x.CLSS_CD.Equals("002")).FirstOrDefault<MobileVo>();
+                            this.LocItem = this.ComboLocList.Where(x => x.CLSS_CD.Equals("100")).FirstOrDefault<MobileVo>();
                         }
                     }
                 }
@@ -116,7 +116,8 @@ namespace ROBO_Mobile.ViewModels
                 this.InpDt = DateTime.Now.Date;
                 // (NumericEdit) 입고가닥수량
                 this.InpQty = 0;
-
+                // (NumericEdit) 길이
+                this.ItmLen = 0;
             }
             catch (Exception eLog)
             {
@@ -148,18 +149,18 @@ namespace ROBO_Mobile.ViewModels
             {
                 if (N2ndGrpItem == null) return;
 
-                // 수불유형
-                using (client = httpClient())
-                {
-                    using (response = await client.PostAsync("mobile/itm/len"
-                                                            , new StringContent(JsonConvert.SerializeObject(new MobileVo() { N1ST_ITM_GRP_CD = this.N1stGrpItem.ITM_GRP_CD, N2ND_ITM_GRP_CD = this.N2ndGrpItem.ITM_GRP_CD, CHNL_CD = this.CHNL_CD, DELT_FLG = "N" }), System.Text.Encoding.UTF8, "application/json")))
-                    {
-                        if (response.IsSuccessStatusCode)
-                        {
-                            this.ComboLenList = JsonConvert.DeserializeObject<IEnumerable<MobileVo>>(await response.Content.ReadAsStringAsync()).Cast<MobileVo>().ToList();
-                        }
-                    }
-                }
+                //// 길이조회
+                //using (client = httpClient())
+                //{
+                //    using (response = await client.PostAsync("mobile/itm/len"
+                //                                            , new StringContent(JsonConvert.SerializeObject(new MobileVo() { N1ST_ITM_GRP_CD = this.N1stGrpItem.ITM_GRP_CD, N2ND_ITM_GRP_CD = this.N2ndGrpItem.ITM_GRP_CD, CHNL_CD = this.CHNL_CD, DELT_FLG = "N" }), System.Text.Encoding.UTF8, "application/json")))
+                //    {
+                //        if (response.IsSuccessStatusCode)
+                //        {
+                //            this.ComboLenList = JsonConvert.DeserializeObject<IEnumerable<MobileVo>>(await response.Content.ReadAsStringAsync()).Cast<MobileVo>().ToList();
+                //        }
+                //    }
+                //}
 
             }
             catch (Exception eLog)
@@ -216,13 +217,16 @@ namespace ROBO_Mobile.ViewModels
                         this.ActualHasError = false;
                         // 규격
                         this.N2ndGrpItem = null;
+                        // 길이
+                        this.ItmLen = 0;
                         // 품목
-                        this.LenList = new List<MobileVo>();
+                        //this.LenList = new List<MobileVo>();           
                         this.LenItem = null;
                         // (DateEdit) 입고일자 = 현재
                         this.InpDt = DateTime.Now.Date;
                         // 가닥수량
                         this.InpQty = 0;
+
 
                     }
                 }
@@ -339,6 +343,115 @@ namespace ROBO_Mobile.ViewModels
             return ret;
         }
 
+        /// <summary>
+        /// 입고 취소 할 때 해당 창을 닫습니다.
+        /// </summary>
+        private Command refrushCommand;
+        public Command RefrushCommand
+        {
+            get { return refrushCommand ?? (this.refrushCommand = new Command(this.ItmSelectCommand)); }
+        }
+        private async void ItmSelectCommand()
+        {
+            try
+            {
+                // 유효검사
+                if (this.N1stGrpItem == null) return;
+                if (this.N1stGrpItem.ITM_GRP_CD == null) return;
+                if (this.N2ndGrpItem == null) return;
+                if (this.N2ndGrpItem.ITM_GRP_CD == null) return;
+                if (this.ItmLen <= 0) return;
+
+                var obj = new MobileVo()
+                {
+                    CHNL_CD = this.CHNL_CD,
+                    N1ST_ITM_GRP_CD = this.N1stGrpItem.ITM_GRP_CD,
+                    N2ND_ITM_GRP_CD = this.N2ndGrpItem.ITM_GRP_CD,
+                    DELT_FLG = "N",
+                    ITM_GRP_CLSS_CD = "M",
+                    USR_ID = USER_ID,
+                    ITM_LEN = this.ItmLen
+                };
+
+
+                // 조회
+                MobileVo itmObj = await PostJsonItm<MobileVo>("mobile/itm/len", obj);
+
+                if (itmObj == null)
+                {
+                    // 품목등록 질문
+                    if(await App.Current.MainPage.DisplayAlert(Title + "- 신규 품목 등록", "길이 : " + this.ItmLen.ToString() + " 등록하겠습니까?", "YES", "NO") == false)
+                    {
+                        // 취소
+                        return;
+                    }
+
+                    // 등록
+                    using (client = httpClient())
+                    {
+                        using (HttpResponseMessage response = await client.PostAsync("mobile/itm/i", new StringContent(JsonConvert.SerializeObject(obj), System.Text.Encoding.UTF8, "application/json")))
+                        {
+                            if (response.IsSuccessStatusCode)
+                            {
+                                int _Num = 0;
+                                string resultMsg = await response.Content.ReadAsStringAsync();
+                                if (int.TryParse(resultMsg, out _Num) == false)
+                                {
+                                    //실패
+                                    await App.Current.MainPage.DisplayAlert(Title + " - 품목 등록 오류", resultMsg, "OK");
+                                    return;
+                                }
+                            }
+                            // 성공
+                            await App.Current.MainPage.DisplayAlert(Title + " - 품목 등록", "등록 되었습니다", "OK");
+
+                            // 다시 조회
+                            itmObj = await PostJsonItm<MobileVo>("mobile/itm/len", obj);
+                        }
+                    }
+                }
+
+                LenItem = itmObj;
+            }
+            catch (Exception eLog)
+            {
+                await App.Current.MainPage.DisplayAlert(Title + " - 품목 조회 오류", eLog.Message, "OK");
+                return;
+            }
+        }
+
+        private async Task<T> PostJsonItm<T>(string Path, object obj)
+        {
+            var ret = default(T);
+
+            try
+            {
+                using (client = httpClient())
+                {
+                    using (response = await client.PostAsync(Path
+                                                           , new StringContent(JsonConvert.SerializeObject(obj), System.Text.Encoding.UTF8, "application/json")))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var retList = JsonConvert.DeserializeObject<IEnumerable<T>>(await response.Content.ReadAsStringAsync()).Cast<T>().ToList();
+
+                            if (retList.Count >= 1)
+                            {
+                                ret = retList[0];
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception eLog)
+            {
+                await App.Current.MainPage.DisplayAlert(Title + " - 품목 조회 오류", eLog.Message, "OK");
+            }        
+
+            return ret;
+        }
+
 
         /// <summary>
         /// 입고 취소 할 때 해당 창을 닫습니다.
@@ -359,6 +472,38 @@ namespace ROBO_Mobile.ViewModels
             catch (Exception eLog)
             {
                 await App.Current.MainPage.DisplayAlert(Title + " - 입고 뒤로 오류", eLog.Message, "OK");
+                return;
+            }
+        }
+
+        /// <summary>
+        /// 길이 값을 유효검사 합니다.
+        /// </summary>
+        public async void ItmLenChanged()
+        {
+            try
+            {
+                int _Num = 0;
+
+                // 입력한 수량이 정수가 아닐 경우
+                if (int.TryParse(ItmLen.ToString(), out _Num) == false)
+                {
+                    this.LenActualErrorText = "길이 값을 정수형태로 입력하세요";
+                    this.LenActualHasError = true;
+                }
+                else if (int.Parse(ItmLen.ToString()) <= 0)
+                {
+                    this.LenActualErrorText = "길이 값을 다시 입력하세요";
+                    this.LenActualHasError = true;
+                }
+                else
+                {
+                    this.LenActualHasError = false;
+                }
+            }
+            catch (Exception eLog)
+            {
+                await App.Current.MainPage.DisplayAlert(Title + " - 길이 입력 오류", eLog.Message, "OK");
                 return;
             }
         }
@@ -507,12 +652,12 @@ namespace ROBO_Mobile.ViewModels
         }
 
         // 길이
-        private IList<MobileVo> LenList = new List<MobileVo>();
-        public IList<MobileVo> ComboLenList
-        {
-            get => this.LenList;
-            set => SetProperty(ref this.LenList, value);
-        }
+        //private IList<MobileVo> LenList = new List<MobileVo>();
+        //public IList<MobileVo> ComboLenList
+        //{
+        //    get => this.LenList;
+        //    set => SetProperty(ref this.LenList, value);
+        //}
 
         private MobileVo _lenItem = new MobileVo();
         public MobileVo LenItem
@@ -520,6 +665,35 @@ namespace ROBO_Mobile.ViewModels
             get => this._lenItem;
             set => SetProperty(ref this._lenItem, value);
         }
+
+        // 길이
+        int itmLen;
+        public int ItmLen
+        {
+            get => this.itmLen;
+            set
+            {
+                SetProperty(ref this.itmLen, value);
+                ItmLenChanged();
+            }
+        }
+        // 길이 입력 오류 여부
+        bool lenActualHasError = false;
+        public bool LenActualHasError
+        {
+            get => this.lenActualHasError;
+            set => SetProperty(ref this.lenActualHasError, value);
+        }
+        // 길이 입력 오류 문구
+        string lenActualErrorText;
+        public string LenActualErrorText
+        {
+            get => this.lenActualErrorText;
+            set => SetProperty(ref this.lenActualErrorText, value);
+        }
+
+
+
 
         // 수불유형
         private IList<MobileVo> InaudList = new List<MobileVo>();

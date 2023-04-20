@@ -30,15 +30,16 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="67"/>
+                <RowDefinition Height="67"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="58"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="67"/>
+                <RowDefinition Height="67"/>
+                <RowDefinition Height="67"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -73,7 +74,7 @@
                 </dxe:ComboBoxEdit.ItemTemplate>
             </dxe:ComboBoxEdit>
 
-            <dxe:ComboBoxEdit LabelText="길이" Grid.Row="2" Margin="10,5" ItemsSource="{Binding ComboLenList}" SelectedItem="{Binding LenItem, Mode=TwoWay}" DisplayMember="ITM_LEN" ValueMember="ITM_CD" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" >
+            <!--<dxe:ComboBoxEdit LabelText="길이" Grid.Row="2" Margin="10,5" ItemsSource="{Binding ComboLenList}" SelectedItem="{Binding LenItem, Mode=TwoWay}" DisplayMember="ITM_LEN" ValueMember="ITM_CD" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" >
                 <dxe:ComboBoxEdit.ItemTemplate>
                     <DataTemplate>
                         <Grid HeightRequest="40">
@@ -86,12 +87,34 @@
                         </Grid>
                     </DataTemplate>
                 </dxe:ComboBoxEdit.ItemTemplate>
-            </dxe:ComboBoxEdit>
+            </dxe:ComboBoxEdit>-->
 
-            <dxe:TextEdit LabelText="품목" Grid.Row="4" Margin="10,5" Text="{Binding LenItem.ITM_CD}" IsEnabled="False" TextHorizontalAlignment="Center" BorderColor="Black" TextColor="Black" FocusedLabelColor="DarkOrange" />
+            <dxe:NumericEdit
+                          Grid.Row="2" 
+                          Margin="10,5" 
+                          TextHorizontalAlignment="End" 
+                          DisplayFormat="###,##0 ㎜"
+                          Value="{Binding ItmLen, Mode=TwoWay}"                         
+                          HasError="{Binding LenActualHasError}"
+                          ErrorText="{Binding LenActualErrorText}"
+                          HelpText="길이를 입력하세요." />
+
+            <dxe:SimpleButton Text="품목조회"
+                              Grid.Row="3" 
+                              Margin="10,0" 
+                              TextColor="White"
+                              Padding="24,8"
+                              IconIndent="16"
+                              HorizontalContentAlignment="Center"
+                              VerticalOptions="Center"
+                              BackgroundColor="Black" 
+                              IsEnabled="True"
+                              Command="{Binding RefrushCommand}"/>
+
+            <dxe:TextEdit LabelText="품목" Grid.Row="5" Margin="10,5" Text="{Binding LenItem.ITM_CD}" IsEnabled="False" TextHorizontalAlignment="Center" BorderColor="Black" TextColor="Black" FocusedLabelColor="DarkOrange" />
 
 
-            <dxe:ComboBoxEdit LabelText="수불유형" Grid.Row="5" Margin="10,5" ItemsSource="{Binding ComboInaudList}" SelectedItem="{Binding InaudItem, Mode=TwoWay}" DisplayMember="CLSS_DESC" ValueMember="CLSS_CD" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" TextHorizontalAlignment="Center">
+            <dxe:ComboBoxEdit LabelText="수불유형" Grid.Row="6" Margin="10,5" ItemsSource="{Binding ComboInaudList}" SelectedItem="{Binding InaudItem, Mode=TwoWay}" DisplayMember="CLSS_DESC" ValueMember="CLSS_CD" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" TextHorizontalAlignment="Center">
                 <dxe:ComboBoxEdit.ItemTemplate>
                     <DataTemplate>
                         <Grid HeightRequest="40">
@@ -106,7 +129,7 @@
                 </dxe:ComboBoxEdit.ItemTemplate>
             </dxe:ComboBoxEdit>
 
-            <dxe:ComboBoxEdit LabelText="창고" Grid.Row="6" Margin="10,5" ItemsSource="{Binding ComboLocList}" SelectedItem="{Binding LocItem, Mode=TwoWay}" DisplayMember="CLSS_DESC" ValueMember="CLSS_CD" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" TextHorizontalAlignment="Center">
+            <dxe:ComboBoxEdit LabelText="창고" Grid.Row="7" Margin="10,5" ItemsSource="{Binding ComboLocList}" SelectedItem="{Binding LocItem, Mode=TwoWay}" DisplayMember="CLSS_DESC" ValueMember="CLSS_CD" IsLabelFloating="True" FocusedLabelColor="DarkOrange" IsFilterEnabled="False" TextHorizontalAlignment="Center">
                 <dxe:ComboBoxEdit.ItemTemplate>
                     <DataTemplate>
                         <Grid HeightRequest="40">
@@ -122,7 +145,7 @@
             </dxe:ComboBoxEdit>
 
 
-            <dxe:DateEdit Grid.Row="7" 
+            <dxe:DateEdit Grid.Row="8" 
                           Margin="10,5" 
                           TextHorizontalAlignment="Center" 
                           Date="{Binding InpDt, Mode=TwoWay}"
@@ -130,7 +153,7 @@
                           HelpText="입고일자를 입력하세요." />
 
             <dxe:NumericEdit
-                          Grid.Row="8" 
+                          Grid.Row="9" 
                           Margin="10,5" 
                           TextHorizontalAlignment="End" 
                           DisplayFormat="###,###,###,##0"
@@ -141,7 +164,7 @@
 
 
             <StackLayout Orientation="Horizontal" 
-                         Grid.Row="9" 
+                         Grid.Row="10" 
                          Padding="24,8"                               
                          HorizontalOptions="Fill">
                 <!--PressedBackgroundColor="{StaticResource MainPageBackgroundColor}"-->

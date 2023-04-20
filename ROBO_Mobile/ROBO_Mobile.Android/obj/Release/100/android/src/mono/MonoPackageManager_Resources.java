@@ -20,7 +20,6 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.SwipeRefreshLayout.dll",
 		"Xamarin.AndroidX.ViewPager.dll",
 		"Xamarin.Google.Android.Material.dll",
-		"Xam.Plugin.AutoUpdate.dll",
 		"DevExpress.Xamarin.Android.Charts.dll",
 		"DevExpress.Xamarin.Android.CollectionView.dll",
 		"DevExpress.Xamarin.Android.Editors.dll",
@@ -49,8 +48,6 @@ public class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"Newtonsoft.Json.dll",
 		"Rg.Plugins.Popup.dll",
-		"ROBO_Mobile.dll",
-		"Xam.Plugin.AutoUpdate.Droid.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.SavedState.dll",
 		"Xamarin.Essentials.dll",
@@ -68,6 +65,9 @@ public class MonoPackageManager_Resources {
 		"zxing.portable.dll",
 		"ZXingNetMobile.dll",
 		"ROBO_Mobile.Android.dll",
+		"Xam.Plugin.AutoUpdate.dll",
+		"ROBO_Mobile.dll",
+		"Xam.Plugin.AutoUpdate.Droid.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

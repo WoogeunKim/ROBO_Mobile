@@ -307,7 +307,7 @@ namespace ROBO_Mobile.ViewModels
             ret.INAUD_DT = InpDt.ToString("yyyy-MM-dd");
 
             ret.INAUD_CD = "RGU";
-            ret.LOC_CD = "002";
+            ret.LOC_CD = "100";
 
             ret.CHNL_CD = this.CHNL_CD;
             ret.AREA_CD = "002";

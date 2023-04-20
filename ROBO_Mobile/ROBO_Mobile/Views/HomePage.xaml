@@ -115,7 +115,7 @@
                        Aspect="AspectFit"
                        HeightRequest="25"
                        WidthRequest="25" Grid.Row="0" />
-                    <Label Text="원자재출고" FontSize="14" HorizontalTextAlignment="Center" Grid.Row="1" TextColor="Red" />
+                    <Label Text="원자재투입" FontSize="14" HorizontalTextAlignment="Center" Grid.Row="1" TextColor="Red" />
                 </Grid>
             </Frame>
 

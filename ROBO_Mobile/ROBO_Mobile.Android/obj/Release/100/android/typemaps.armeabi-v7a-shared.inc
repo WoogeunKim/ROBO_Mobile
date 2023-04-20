@@ -109,98 +109,98 @@
 	.section	.rodata.map_aname.18,"aMS",%progbits,1
 	.type	.L.map_aname.18, %object
 .L.map_aname.18:
-	.asciz	"ROBO_Mobile.Android"
-	.size	.L.map_aname.18, 20
+	.asciz	"FFImageLoading.Forms.Platform"
+	.size	.L.map_aname.18, 30
 
 	.section	.rodata.map_aname.19,"aMS",%progbits,1
 	.type	.L.map_aname.19, %object
 .L.map_aname.19:
-	.asciz	"FFImageLoading.Forms.Platform"
-	.size	.L.map_aname.19, 30
+	.asciz	"DevExpress.XamarinForms.Scheduler.Android"
+	.size	.L.map_aname.19, 42
 
 	.section	.rodata.map_aname.20,"aMS",%progbits,1
 	.type	.L.map_aname.20, %object
 .L.map_aname.20:
-	.asciz	"DevExpress.XamarinForms.Scheduler.Android"
-	.size	.L.map_aname.20, 42
+	.asciz	"Xamarin.AndroidX.SavedState"
+	.size	.L.map_aname.20, 28
 
 	.section	.rodata.map_aname.21,"aMS",%progbits,1
 	.type	.L.map_aname.21, %object
 .L.map_aname.21:
-	.asciz	"Xamarin.AndroidX.SavedState"
-	.size	.L.map_aname.21, 28
+	.asciz	"Xamarin.AndroidX.Browser"
+	.size	.L.map_aname.21, 25
 
 	.section	.rodata.map_aname.22,"aMS",%progbits,1
 	.type	.L.map_aname.22, %object
 .L.map_aname.22:
-	.asciz	"Xamarin.AndroidX.Browser"
-	.size	.L.map_aname.22, 25
+	.asciz	"FFImageLoading.Platform"
+	.size	.L.map_aname.22, 24
 
 	.section	.rodata.map_aname.23,"aMS",%progbits,1
 	.type	.L.map_aname.23, %object
 .L.map_aname.23:
-	.asciz	"FFImageLoading.Platform"
-	.size	.L.map_aname.23, 24
+	.asciz	"Xamarin.Google.Android.Material"
+	.size	.L.map_aname.23, 32
 
 	.section	.rodata.map_aname.24,"aMS",%progbits,1
 	.type	.L.map_aname.24, %object
 .L.map_aname.24:
-	.asciz	"Xamarin.Google.Android.Material"
-	.size	.L.map_aname.24, 32
+	.asciz	"DevExpress.Xamarin.Android.Navigation"
+	.size	.L.map_aname.24, 38
 
 	.section	.rodata.map_aname.25,"aMS",%progbits,1
 	.type	.L.map_aname.25, %object
 .L.map_aname.25:
-	.asciz	"DevExpress.Xamarin.Android.Navigation"
-	.size	.L.map_aname.25, 38
+	.asciz	"Xamarin.AndroidX.Lifecycle.Common"
+	.size	.L.map_aname.25, 34
 
 	.section	.rodata.map_aname.26,"aMS",%progbits,1
 	.type	.L.map_aname.26, %object
 .L.map_aname.26:
-	.asciz	"Xamarin.AndroidX.Lifecycle.Common"
-	.size	.L.map_aname.26, 34
+	.asciz	"Xamarin.Forms.Platform.Android"
+	.size	.L.map_aname.26, 31
 
 	.section	.rodata.map_aname.27,"aMS",%progbits,1
 	.type	.L.map_aname.27, %object
 .L.map_aname.27:
-	.asciz	"Xamarin.Forms.Platform.Android"
-	.size	.L.map_aname.27, 31
+	.asciz	"Xamarin.AndroidX.Activity"
+	.size	.L.map_aname.27, 26
 
 	.section	.rodata.map_aname.28,"aMS",%progbits,1
 	.type	.L.map_aname.28, %object
 .L.map_aname.28:
-	.asciz	"Xamarin.AndroidX.Activity"
-	.size	.L.map_aname.28, 26
+	.asciz	"DevExpress.Xamarin.Android.CollectionView"
+	.size	.L.map_aname.28, 42
 
 	.section	.rodata.map_aname.29,"aMS",%progbits,1
 	.type	.L.map_aname.29, %object
 .L.map_aname.29:
-	.asciz	"DevExpress.Xamarin.Android.CollectionView"
-	.size	.L.map_aname.29, 42
+	.asciz	"ZXing.Net.Mobile.Forms.Android"
+	.size	.L.map_aname.29, 31
 
 	.section	.rodata.map_aname.30,"aMS",%progbits,1
 	.type	.L.map_aname.30, %object
 .L.map_aname.30:
-	.asciz	"ZXing.Net.Mobile.Forms.Android"
-	.size	.L.map_aname.30, 31
+	.asciz	"Xamarin.AndroidX.DrawerLayout"
+	.size	.L.map_aname.30, 30
 
 	.section	.rodata.map_aname.31,"aMS",%progbits,1
 	.type	.L.map_aname.31, %object
 .L.map_aname.31:
-	.asciz	"Xamarin.AndroidX.DrawerLayout"
-	.size	.L.map_aname.31, 30
+	.asciz	"Mono.Android"
+	.size	.L.map_aname.31, 13
 
 	.section	.rodata.map_aname.32,"aMS",%progbits,1
 	.type	.L.map_aname.32, %object
 .L.map_aname.32:
-	.asciz	"Mono.Android"
-	.size	.L.map_aname.32, 13
+	.asciz	"Xamarin.AndroidX.Fragment"
+	.size	.L.map_aname.32, 26
 
 	.section	.rodata.map_aname.33,"aMS",%progbits,1
 	.type	.L.map_aname.33, %object
 .L.map_aname.33:
-	.asciz	"Xamarin.AndroidX.Fragment"
-	.size	.L.map_aname.33, 26
+	.asciz	"ROBO_Mobile.Android"
+	.size	.L.map_aname.33, 20
 
 	.section	.rodata.map_aname.34,"aMS",%progbits,1
 	.type	.L.map_aname.34, %object

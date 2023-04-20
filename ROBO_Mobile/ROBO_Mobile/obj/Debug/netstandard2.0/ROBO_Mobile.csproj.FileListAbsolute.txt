@@ -11,12 +11,16 @@ E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\ChartsPage.xaml.g.cs
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\COMMON\LoadingPopupPage.xaml.g.cs
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\DataGridPage.xaml.g.cs
+E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\Dialog\FullScreenScanning.xaml.g.cs
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\HomePage.xaml.g.cs
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\ItemDetailPage.xaml.g.cs
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\ItemsPage.xaml.g.cs
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\MtrlOutPage.xaml.g.cs
+E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\MtrlReturnInPage.xaml.g.cs
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\NewItemPage.xaml.g.cs
+E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\OtherInCasePage.xaml.g.cs
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\PopupPage.xaml.g.cs
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\SchedulerPage.xaml.g.cs
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\Templates\DrawerTitleView.xaml.g.cs
@@ -28,7 +32,3 @@ E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\ROBO_
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\ROBO_Mobile.dll
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\ref\ROBO_Mobile.dll
 E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\ROBO_Mobile.pdb
-E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\Dialog\FullScreenScanning.xaml.g.cs
-E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\OtherInCasePage.xaml.g.cs
-E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\MtrlOutPage.xaml.g.cs
-E:\WebService\ROBO_Mobile\ROBO_Mobile\ROBO_Mobile\obj\Debug\netstandard2.0\Views\MtrlReturnInPage.xaml.g.cs
